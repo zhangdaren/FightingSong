@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>战歌</title>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=750,target-densitydpi=device-dpi,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+	</head>
+
+	<body>
+		<div class="whole">
+			<audio id="music" preload="true"></audio>
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide">自定义场景一</div>
+					<div class="swiper-slide">自定义场景二</div>
+					<div class="swiper-slide">自定义场景三</div>
+				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+			<div class="tabContent" id="tabContent">
+				<div class="tabBody active">
+					<div class="List">
+						<ul>
+							<li>
+								<div class="vCenter">
+									<p>蓝精灵</p>
+									<i class="play" data-src="audio/demo.mp3"></i>
+								</div>
+								<div class="progressBar"></div>
+							</li>
+							<li>
+								<div class="vCenter">
+									<p>征服天堂</p>
+									<i class="play" data-src="audio/demo2.mp3"></i>
+								</div>
+								<div class="progressBar"></div>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				<div class="tabBody">
+					<div class="List">
+						<ul>
+							<li>
+								<div class="vCenter">
+									<p>歌曲12222</p>
+									<i class="play" data-src="audio/demo2.mp3"></i>
+								</div>
+								<div class="progressBar"></div>
+							</li>
+							<li>
+								<div class="vCenter">
+									<p>歌曲222222</p>
+									<i class="play" data-src="audio/demo2.mp3"></i>
+								</div>
+								<div class="progressBar"></div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="tabBody">
+					<div class="List">
+						<ul>
+							<li>
+								<div class="vCenter">
+									<p>歌曲133333</p>
+									<i class="play" data-src="audio/demo2.mp3"></i>
+								</div>
+							</li>
+							<li>
+								<div class="vCenter">
+									<p>歌曲233333</p>
+									<i class="play" data-src="audio/demo2.mp3"></i>
+								</div>
+							</li>
+							<li>
+								<div class="vCenter">
+									<p>歌曲233333</p>
+									<i class="play" data-src="audio/demo2.mp3"></i>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="vGap" style="height: 40px;"></div>
+		</div>
+
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script type="text/javascript" src="js/swiper.jquery.min.js"></script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container', {
+				prevButton: '.swiper-button-prev',
+				nextButton: '.swiper-button-next',
+				onSlideChangeEnd: function(swiper) {
+					//					alert(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
+					$("#tabContent .tabBody").eq(swiper.activeIndex).addClass("active").siblings().removeClass("active");
+
+				}
+			})
+
+			var music = document.getElementById('music');
+
+			music.addEventListener("timeupdate", timeUpdate, false);
+			music.play();
+
+			function timeUpdate() {
+
+				//				console.log(music.currentTime);
+				//				var playPercent = timelineWidth * (music.currentTime / duration);
+				//				playhead.style.marginLeft = playPercent + "px";
+				//				if(music.currentTime == duration) {
+				//					pButton.className = "";
+				//					pButton.className = "play";
+				//				}
+			}
+
+			$("#tabContent").on("click", ".play", function() {
+
+				if($(this).hasClass("pause")) {
+					$(".play").removeClass("pause");
+					music.pause();
+				} else {
+					music.pause();
+					$(".play").removeClass("pause");
+					$(this).addClass("pause");
+
+					var mp3Url = $(this).attr("data-src");
+					music.src = mp3Url;
+					music.play();
+				}
+			});
+		</script>
+	</body>
+
+</html>

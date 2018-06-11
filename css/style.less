@@ -1,0 +1,108 @@
+@import 'lib-reset-mobile';
+@import 'base';
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: white
+}
+
+ul {
+    list-style-type: none
+}
+
+a {
+    text-decoration: none;
+    color: #18B4FE;
+}
+
+body {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background: #EBC3A7;
+}
+
+.whole {
+    width: 750px;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    background: #F78399;
+    text-align: center;
+    font-size: 32px;
+    line-height: 100px;
+    color: #FFF;
+}
+
+.swiper-container {
+    height: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-width: 750px;
+}
+
+.tabContent {
+    padding-top: 100px;
+    .tabBody {
+        display: none;
+        //
+        &.active {
+            display: block;
+        }
+        .List {
+            padding: 0 20px;
+            &>ul>li {
+                margin-top: 20px;
+                height: 200px;
+                background: #FFB5C3;
+                border-radius: 15px;
+                position: relative;
+                p {
+                    color: #FFF;
+                    letter-spacing: 5px;
+                    font-size: 70px;
+                    text-align: center;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    line-height: 1.2;
+                    display: inline-block;
+                    //                  position: absolute;
+                    //                  left: 50%;
+                    //                  top: 50%;
+                    //                  -webkit-transform: translate(-50%, -50%);
+                    //                  -moz-transform: translate(-50%, -50%);
+                    //                  -ms-transform: translate(-50%, -50%);
+                    //                  transform: translate(-50%, -50%);
+                }
+                .vCenter {
+                    width: fit-content;
+                }
+            }
+        }
+    }
+}
+
+.play {
+    background-image: url(../img/play.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    vertical-align: 8px;
+    margin-left: 20px;
+    &.pause {
+        background-image: url(../img/pause.svg);
+    }
+}
