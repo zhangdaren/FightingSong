@@ -597,10 +597,14 @@ body {
 .swiper-container {
   height: 100px;
   position: fixed;
-  left: 0;
+  left: 50%;
   top: 0;
   width: 100%;
   max-width: 750px;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .tabContent {
   padding-top: 100px;
@@ -645,6 +649,7 @@ body {
   height: 64px;
   display: inline-block;
   vertical-align: 8px;
+  cursor: pointer;
   margin-left: 20px;
 }
 .play.pause {
